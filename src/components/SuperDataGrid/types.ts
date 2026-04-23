@@ -1,4 +1,11 @@
-import type { GridColDef, GridRowModel, GridColumnVisibilityModel } from '@mui/x-data-grid';
+import type {
+  GridColDef,
+  GridRowModel,
+  GridColumnVisibilityModel,
+  GridFilterModel,
+  GridSortModel,
+  GridPaginationModel,
+} from '@mui/x-data-grid';
 
 export type GridRowId = string | number;
 
@@ -63,7 +70,42 @@ export interface SuperDataGridProps {
   height?: number | string;
   width?: number | string;
   onCellAction?: (action: string, context: unknown) => void;
+
+  // Pagination
+  pageSizeOptions?: number[];
+  /** Set when using external (server-side) pagination to override the total row count. */
+  rowCount?: number;
+
+  // Loading
+  loading?: boolean;
+
+  // Selection
+  checkboxSelection?: boolean;
+
+  // Editing
+  editMode?: 'cell' | 'row';
+  processRowUpdate?: (
+    newRow: SuperGridRowModel,
+    oldRow: SuperGridRowModel,
+  ) => SuperGridRowModel | Promise<SuperGridRowModel>;
+  onProcessRowUpdateError?: (error: unknown) => void;
+
+  // Events
+  onRowClick?: (row: SuperGridRowModel) => void;
+  onCellClick?: (row: SuperGridRowModel, field: string, value: unknown) => void;
+
+  // UI
+  showToolbar?: boolean;
+
+  // Pinning (controlled)
+  pinnedColumns?: PinnedColumns;
+  onPinnedColumnsChange?: (pinnedColumns: PinnedColumns) => void;
 }
 
-// Re-export to satisfy unused import lint
-export type { GridColumnVisibilityModel };
+// Re-export MUI grid types consumed by consumers
+export type {
+  GridColumnVisibilityModel,
+  GridFilterModel,
+  GridSortModel,
+  GridPaginationModel,
+};
