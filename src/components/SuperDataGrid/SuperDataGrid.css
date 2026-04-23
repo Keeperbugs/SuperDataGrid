@@ -1,0 +1,38 @@
+.super-data-grid-container {
+  position: relative;
+}
+
+/* Cell selection style */
+.MuiDataGrid-cell--selected {
+  background-color: rgba(25, 118, 210, 0.15) !important;
+  outline: 1px solid #1976d2 !important;
+}
+
+/* Column selected style */
+.MuiDataGrid-columnHeader--selected {
+  background-color: rgba(25, 118, 210, 0.12) !important;
+}
+
+/* Row selected style */
+.row-selected .MuiDataGrid-cell {
+  background-color: rgba(25, 118, 210, 0.08) !important;
+}
+
+/* Group header row */
+.row-group-header {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  font-weight: 600 !important;
+}
+
+.row-group-header:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Pinned column indicator */
+.MuiDataGrid-columnHeader--pinned-left {
+  border-right: 2px solid #1976d2;
+}
+
+.MuiDataGrid-columnHeader--pinned-right {
+  border-left: 2px solid #1976d2;
+}
