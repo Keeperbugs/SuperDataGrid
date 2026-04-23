@@ -7,4 +7,7 @@ export type {
   PinnedColumns,
   CellSelectionState,
   ContextMenuState,
+  GridFilterModel,
+  GridSortModel,
+  GridPaginationModel,
 } from './types';
